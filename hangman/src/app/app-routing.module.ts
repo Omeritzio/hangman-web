@@ -1,13 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomePageComponent } from './home-page/home-page.component';
-import { EasyComponent } from './easy/easy.component';
-import { HardComponent } from './hard/hard.component';
 
 const routes: Routes = [
   {path:'' , component:HomePageComponent},
-  {path:'easy' ,component:EasyComponent },
-  {path:'hard' ,component:HardComponent },
 ];
 
 @NgModule({
