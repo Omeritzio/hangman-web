@@ -1,0 +1,56 @@
+.title {
+    text-align: center;
+    color: rgb(255, 255, 255);
+    font-size: 6em;
+    border-color: aqua;
+    border-style: groove;
+    border-radius:30em ;
+}
+.welcome {
+    background-color:transparent; 
+    border-color: transparent;
+    margin-left: 20%;
+    color: aliceblue; 
+    font-size: 6em;
+    position: absolute;
+}
+.ready {
+    background-color:transparent; 
+    border-color: aqua;
+    border: 100%;
+    border-radius: 30%;
+    margin-left: 46%;
+    bottom: 40%;
+    color: aliceblue; 
+    font-size: 3em;
+    position: absolute;
+}
+
+.difficulty{
+    color: white ; 
+    font-size:6em;
+    margin-left: 30%;
+}
+
+.easy {
+    background-color:transparent; 
+    border-color: aqua;
+    border: 100%;
+    border-radius: 30%;
+    margin-left: 46%;
+    bottom: 60%;
+    color: aliceblue; 
+    font-size: 3em;
+    position: absolute;
+}
+.hard {
+    background-color:transparent; 
+    border-color: aqua;
+    border: 100%;
+    border-radius: 30%;
+    margin-left: 46%;
+    bottom: 40%;
+    color: aliceblue; 
+    font-size: 3em;
+    position: absolute;
+}
