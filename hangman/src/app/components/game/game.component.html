@@ -1,6 +1,10 @@
-<div class="snow"></div>
+
 <div class="hangeman">
-    <app-game-dispaly></app-game-dispaly>    
+    <app-game-dispaly [guesses]="guesses"></app-game-dispaly>    
     <app-game-question></app-game-question>
     <app-game-keyboard></app-game-keyboard>
 </div>
+
+<button (click)="dummyClick()"></button>
+
+<div class="snow" ></div>
