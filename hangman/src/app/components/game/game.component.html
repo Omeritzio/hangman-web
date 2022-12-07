@@ -2,7 +2,7 @@
 <div class="hangeman">
     <app-game-dispaly [guesses]="guesses" [question]="question"></app-game-dispaly>    
     <app-game-question [guesses]="guesses" [question]="question"></app-game-question>
-    <app-game-keyboard [question]="question"></app-game-keyboard>
+    <app-game-keyboard (keyPressed)="guess($event)" [question]="question"></app-game-keyboard>
 </div>
 
 <button class="btn" (click)="dummyClick()" >click</button>
