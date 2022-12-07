@@ -22,13 +22,12 @@
 <div  *ngIf="isButtonVisible1"  >
     <h1 class="title">Hangman</h1>
    <p class="welcome" style="text-align:center"  >Welcome to Hangman Game </p> 
-    <br>
-    <button class="ready" type="button" (click)="this.isButtonVisible1 = false">Ready</button>
+    <button class="btns" type="button" (click)="this.isButtonVisible1 = false" style="margin-top: 40%;">Ready</button>
 
 </div>
 
 <div *ngIf="isButtonVisible1==false&&this.isButtonVisible2 == true" >
     <p class="difficulty">Choose your difficulty:</p>
-    <button class="btns" (click)="this.isButtonVisible2 = false" >Easy</button>
-    <button class="btns" (click)="this.isButtonVisible2 = false" style="margin-top: 5%;" >Hard</button>
+    <button class="btns" (click)="this.isButtonVisible2 = false; easy()" > Easy  </button>
+    <button class="btns" (click)="this.isButtonVisible2 = false; hard()" style="margin-top: 5%;" >Hard</button>
 </div>

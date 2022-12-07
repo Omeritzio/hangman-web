@@ -3,6 +3,7 @@ import { ArrayType } from '@angular/compiler';
 import { Router } from '@angular/router';
 import { GameService } from 'src/app/services/game.service';
 import { Location } from '@angular/common';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-game',
@@ -23,7 +24,7 @@ export class GameComponent {
   category:string ='';
   restartGamebtnShown=false;
 
-  constructor(private gameService:GameService , private location: Location) {}
+  constructor(private gameService:GameService , private location: Location ,private http:HttpClient) {}
    
   
   ngOnInit(): void {
@@ -48,9 +49,9 @@ export class GameComponent {
 
 
   reset() {
-    this.guesses=[];
+    this.guesses = [];
     this.pickNewQuestion();
-    this.restartGamebtnShown=false;
+    this.restartGamebtnShown = false;
   }
 
   pickNewQuestion(){
@@ -61,4 +62,24 @@ export class GameComponent {
   onGameFinished(){
     this.restartGamebtnShown=true;
   }
-}
+
+  easy(){
+    this.gameService.getQuestions('assets/languages.json').subscribe((response) => {
+      this.questions = response.items;
+      this.category = response.category;
+      this.pickNewQuestion();
+    });
+  }
+
+
+  hard(){
+    this.gameService.getQuestions('assets/hard.json').subscribe((response) => {
+      this.questions = response.items;
+      this.category = response.category;
+      this.pickNewQuestion();
+    });
+  }
+  
+  }
+
+
