@@ -1,0 +1,32 @@
+.keyboard {
+    max-width: 600px;
+    margin: 3px auto;
+    .keys {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+    }
+}
+.btn {
+    border-radius: 4px;
+    min-width: 36px;
+    min-height: 36px;
+    background-color: rgb(60, 165, 231);
+    color: black;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    border: none;
+    z-index: 5000;
+    cursor: pointer;
+    &:hover {
+        &:not(.btn--disabled){
+            opacity: 0.5;
+        }
+        
+    }
+    &--disabled {
+        background-color: rgb(203, 245, 255);
+        cursor: default;
+    }
+}

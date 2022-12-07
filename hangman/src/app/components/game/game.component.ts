@@ -31,7 +31,7 @@ export class GameComponent {
     if (!letter || this.guesses.includes(letter)){
       return;
     }
-    this.guesses.push(letter);
+    this.guesses= [... this.guesses,letter];
 
   }
 

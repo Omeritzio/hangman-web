@@ -1,1 +1,9 @@
-<p>game-keyboard works!</p>
+<div class="keyboard">
+    <div class="keys">
+        <div class="key btn" *ngFor=" let key of keys" [class.btn--disabled]="key.guessed" (click)="onKeyClick(key)">
+            <div class="key-char">
+            {{key.value}}
+            </div>
+        </div>
+    </div>
+</div>

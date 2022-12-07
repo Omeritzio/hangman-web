@@ -1,0 +1,15 @@
+.characters {
+    display: flex;
+    gap: 8px;
+    justify-content: space-between;
+    margin: 30px auto;
+  
+    .character {
+      color: aliceblue;
+      padding-bottom: 8px;
+      border-bottom: 1px solid rgb(251, 251, 251);
+      min-width: 20px;
+      min-height: 20px;
+      text-align: center;
+    }
+  }
