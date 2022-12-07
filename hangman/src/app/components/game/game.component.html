@@ -1,10 +1,34 @@
+<div *ngIf="isButtonVisible1==false&&this.isButtonVisible2 == false&&this.isButtonVisible3 == true">
 
-<div class="hangeman">
-    <app-game-dispaly [guesses]="guesses" [question]="question"></app-game-dispaly>    
-    <app-game-question [guesses]="guesses" [question]="question"></app-game-question>
-    <app-game-keyboard (keyPressed)="guess($event)" [question]="question"></app-game-keyboard>
+
+    <h1 class="title">Hangman</h1>
+    <div class="hangeman">
+    <app-game-dispaly (gameFinished)="onGameFinished()" [guesses]="guesses" [question]="question"></app-game-dispaly> 
+    <ng-container  *ngIf="!restartGamebtnShown else restartGameBtn">
+        <app-game-question [guesses]="guesses" [question]="question"></app-game-question>
+        <app-game-keyboard (keyPressed)="guess($event)" [question]="question"></app-game-keyboard>
+      </ng-container>
 </div>
 
-<button class="btn" (click)="dummyClick()" >click</button>
-
+<ng-template #restartGameBtn>
+    <button mat-raised-button color="primary" (click)="reset()" style="display: block;margin: auto; align-items: center;">
+      {{'Restart Game'}}
+    </button>
+  </ng-template>
+</div>
 <div class="snow" ></div>
+
+
+<div  *ngIf="isButtonVisible1"  >
+    <h1 class="title">Hangman</h1>
+   <p class="welcome" style="text-align:center"  >Welcome to Hangman Game </p> 
+    <br>
+    <button class="ready" type="button" (click)="this.isButtonVisible1 = false">Ready</button>
+
+</div>
+
+<div *ngIf="isButtonVisible1==false&&this.isButtonVisible2 == true" >
+    <p class="difficulty">Choose your difficulty:</p>
+    <button class="btns" (click)="this.isButtonVisible2 = false" >Easy</button>
+    <button class="btns" (click)="this.isButtonVisible2 = false" style="margin-top: 5%;" >Hard</button>
+</div>

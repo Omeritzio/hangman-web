@@ -1,4 +1,52 @@
 .btn {
     position: relative;
     z-index: 5000;
+    background-color: aqua;
+}
+.title {
+    text-align: center;
+    color: rgb(255, 255, 255);
+    font-size: 6em;
+    border-color: aqua;
+    border-style: groove;
+    border-radius:30em ;
+}
+.welcome {
+    margin: auto;
+    text-align: center;
+    color: aliceblue; 
+    font-size: 6em;
+    position: absolute;
+}
+.ready {
+    background-color:transparent; 
+    border-color: aqua;
+    border: 100%;
+    border-radius: 30%;
+    margin-left: 46%;
+    bottom: 40%;
+    color: aliceblue; 
+    font-size: 3em;
+    position: absolute;
+    z-index:500;
+}
+
+.difficulty{
+    color: white ; 
+    font-size:6em;
+    text-align: center;
+}
+
+.btns {
+    background-color:transparent; 
+    border-color: aqua;
+    border-radius: 30%;
+    display: flex;
+    margin: auto;
+    justify-content: center;
+    bottom: 60%;
+    color: aliceblue; 
+    font-size: 3em;
+    position: relative;
+    z-index:500;
 }
