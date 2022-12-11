@@ -1,30 +1,38 @@
-import { Component } from '@angular/core';
-import { ArrayType } from '@angular/compiler';
-import { Router } from '@angular/router';
+import { Component,Output,Input,EventEmitter} from '@angular/core';
 import { GameService } from 'src/app/services/game.service';
 import { Location } from '@angular/common';
-import { HttpClient } from '@angular/common/http';
+import { timer } from 'rxjs';
+import {GameDispalyComponent} from '../game-dispaly/game-dispaly.component'
 
 @Component({
   selector: 'app-game',
   templateUrl: './game.component.html',
   styleUrls: ['./game.component.scss']
+  
 })
 
 
 export class GameComponent {
-
   isButtonVisible1=true;
   isButtonVisible2=true;
   isButtonVisible3=true;
+  seconds=60
+  subscribeTimer: any;
+
+// ----------------------
 
   question:string='';
   questions:string[]=[];
   guesses:string[]=[];
   category:string ='';
   restartGamebtnShown=false;
+  interval:any;
 
-  constructor(private gameService:GameService , private location: Location ,private http:HttpClient) {}
+
+  constructor(private gameService:GameService , private location: Location ,private gameDispaly:GameDispalyComponent,) {
+    gameDispaly.startTimer()
+
+  }
    
   
   ngOnInit(): void {
@@ -38,7 +46,10 @@ export class GameComponent {
         this.category = response.category;
         this.pickNewQuestion();
       });
+      
+
     }
+
   guess(letter:string){
     if (!letter || this.guesses.includes(letter)){
       return;
@@ -51,7 +62,9 @@ export class GameComponent {
   reset() {
     this.guesses = [];
     this.pickNewQuestion();
+    this.gameDispaly.pauseTimer();
     this.restartGamebtnShown = false;
+    
   }
 
   pickNewQuestion(){
@@ -79,7 +92,14 @@ export class GameComponent {
       this.pickNewQuestion();
     });
   }
-  
+
+  timer(){
+    
   }
+
+}
+  //----- timer --------------
+
+
 
 

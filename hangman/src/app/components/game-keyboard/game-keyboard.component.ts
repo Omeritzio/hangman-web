@@ -1,6 +1,7 @@
 import { ThisReceiver } from '@angular/compiler';
 import { Component, Input,Output ,OnInit ,EventEmitter, OnChanges, SimpleChanges} from '@angular/core';
 import KEY_CHARS from 'src/app/constants/keyCharacter';
+import {GameDispalyComponent} from '../game-dispaly/game-dispaly.component'
 
 
 interface IKey {
@@ -18,14 +19,18 @@ export class GameKeyboardComponent implements OnInit, OnChanges{
   @Input() question ='';
   @Output() keyPressed = new EventEmitter<string>();
   keys :IKey[]=[];
+  
 
-  constructor(){
+
+  
+  constructor(private gameDispaly:GameDispalyComponent){
     this.keys = KEY_CHARS.split('').map((key) =>{
       return {
         value:key,
         guessed:false,
       }
     })
+    
   }
 
 
@@ -61,6 +66,7 @@ export class GameKeyboardComponent implements OnInit, OnChanges{
   }
 
   onKeyClick(key:IKey):void {
+    this.gameDispaly.startTimer();
     if(key.guessed){
       return;
     }

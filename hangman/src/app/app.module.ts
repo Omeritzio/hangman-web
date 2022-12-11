@@ -9,6 +9,7 @@ import { GameDispalyComponent } from './components/game-dispaly/game-dispaly.com
 import { GameKeyboardComponent } from './components/game-keyboard/game-keyboard.component';
 import { GameQuestionComponent } from './components/game-question/game-question.component';
 import {HttpClientModule} from '@angular/common/http'
+
 @NgModule({
   declarations: [
     AppComponent,
