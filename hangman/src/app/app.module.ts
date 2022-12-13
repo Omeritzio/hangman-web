@@ -28,7 +28,7 @@ import {HttpClientModule} from '@angular/common/http'
   
     
   ],
-  providers: [],
+  providers: [GameDispalyComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

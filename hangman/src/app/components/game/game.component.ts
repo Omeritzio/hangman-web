@@ -1,4 +1,4 @@
-import { Component,Output,Input,EventEmitter} from '@angular/core';
+import { Component,Output,Input,EventEmitter,ViewChild} from '@angular/core';
 import { GameService } from 'src/app/services/game.service';
 import { Location } from '@angular/common';
 import { timer } from 'rxjs';
@@ -12,28 +12,33 @@ import {GameDispalyComponent} from '../game-dispaly/game-dispaly.component'
 })
 
 
+
 export class GameComponent {
+  @Input() interval:any;
   isButtonVisible1=true;
   isButtonVisible2=true;
   isButtonVisible3=true;
   seconds=60
   subscribeTimer: any;
-
+  @Output() mistakeRemaining:Number=7;
+  @Output() gameFinished = new EventEmitter<boolean>();
+  @Output() timeLeft: number = 30;
+  success: boolean = false;
 // ----------------------
-
+  
   question:string='';
   questions:string[]=[];
   guesses:string[]=[];
   category:string ='';
   restartGamebtnShown=false;
-  interval:any;
+  
 
 
-  constructor(private gameService:GameService , private location: Location ,private gameDispaly:GameDispalyComponent,) {
-    gameDispaly.startTimer()
+  constructor(private gameService:GameService , private location: Location,public gameDispaly:GameDispalyComponent ) {};
 
-  }
-   
+
+
+
   
   ngOnInit(): void {
       let jsonPath;
@@ -62,7 +67,7 @@ export class GameComponent {
   reset() {
     this.guesses = [];
     this.pickNewQuestion();
-    this.gameDispaly.pauseTimer();
+    this.gameService.timeLeft=30;;
     this.restartGamebtnShown = false;
     
   }
@@ -93,9 +98,16 @@ export class GameComponent {
     });
   }
 
-  timer(){
-    
+
+  
+  startTimer(){
+    this.gameDispaly.startTimer()
   }
+
+
+
+
+
 
 }
   //----- timer --------------

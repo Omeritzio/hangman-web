@@ -70,6 +70,13 @@
     animation: shimmy 1s infinite;
     animation-direction: alternate;
   }
+
+
+  .time{
+    color: white;
+    padding: inherit;
+    text-align: center;
+  }
   @keyframes shimmy {
     0% {
       transform: translate(0,0);

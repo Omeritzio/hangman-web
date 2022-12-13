@@ -2,7 +2,7 @@ import { ThisReceiver } from '@angular/compiler';
 import { Component, Input,Output ,OnInit ,EventEmitter, OnChanges, SimpleChanges} from '@angular/core';
 import KEY_CHARS from 'src/app/constants/keyCharacter';
 import {GameDispalyComponent} from '../game-dispaly/game-dispaly.component'
-
+import { GameService } from 'src/app/services/game.service';
 
 interface IKey {
   value:string;
@@ -23,7 +23,7 @@ export class GameKeyboardComponent implements OnInit, OnChanges{
 
 
   
-  constructor(private gameDispaly:GameDispalyComponent){
+  constructor(GameService:GameService){
     this.keys = KEY_CHARS.split('').map((key) =>{
       return {
         value:key,
@@ -66,7 +66,6 @@ export class GameKeyboardComponent implements OnInit, OnChanges{
   }
 
   onKeyClick(key:IKey):void {
-    this.gameDispaly.startTimer();
     if(key.guessed){
       return;
     }

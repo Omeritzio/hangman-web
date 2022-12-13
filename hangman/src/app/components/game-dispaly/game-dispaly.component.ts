@@ -1,6 +1,7 @@
 import { Component, Input, OnChanges, OnInit, SimpleChanges, Output,EventEmitter, } from '@angular/core';
 import { timer } from 'rxjs';
 import { Injectable } from '@angular/core';
+import { GameService } from 'src/app/services/game.service';
 
 @Component({
   selector: 'app-game-dispaly',
@@ -18,14 +19,16 @@ export class GameDispalyComponent implements OnInit,OnChanges {
   @Input() question: string = '';
   @Output() gameFinished = new EventEmitter<boolean>();
   MAX_MISTAKES = 7;
-  mistakesRemaining;
+  @Output() mistakesRemaining;
   success: boolean = false;
   subscribeTimer: any;
-  interval:any;
+  @Output() interval:any;
 
+  @Output() timeLeft: number = 30;
 
   constructor() {
     this.mistakesRemaining = this.MAX_MISTAKES;
+    
   }
 
   ngOnChanges(changes: SimpleChanges): void {
@@ -76,36 +79,40 @@ export class GameDispalyComponent implements OnInit,OnChanges {
   }
 
 
-  timeLeft: number = 60;
-  oberserableTimer() {
-    const source = timer(1000, 2000);
-    const abc = source.subscribe(val => {
-      console.log(val, '-');
-      this.subscribeTimer = this.timeLeft - val;
-    });
-  }
-
-  startTimer() {
-    this.interval= setInterval(() => {
-        if(this.timeLeft > 0) {
-          this.timeLeft--;
-        } else {
-          this.mistakesRemaining=0;
-          this.gameFinished.emit(this.success);
-          this.pauseTimer()
-        }
-      },1000)
-    }
-
-    pauseTimer() {
-      clearInterval(this.interval);
-      this.mistakesRemaining = this.MAX_MISTAKES;
-      this.timeLeft = 60;
-    }
-
-  ngOnInit(): void {}
+  
+oberserableTimer() {
+  const source = timer(1000, 2000);
+  const abc = source.subscribe(val => {
+    console.log(val, '-');
+    this.subscribeTimer = this.timeLeft - val;
+  });
 }
 
+public startTimer() {
+  this.interval= setInterval(() => {
+      if(this.timeLeft > 0) {
+        this.timeLeft--;
+      } else {
+        this.mistakesRemaining=0;
+        this.gameFinished.emit(this.success);
+        this.pauseTimer()
+      }
+    },1000)
+    
+  }
+
+pauseTimer() {
+  clearInterval(this.interval);
+}
+
+
+
+  ngOnInit(): void {
+
+
+  }
+
+}
   
 
 

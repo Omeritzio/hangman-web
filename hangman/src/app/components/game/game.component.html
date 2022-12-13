@@ -5,13 +5,13 @@
     <div class="hangeman">
     <app-game-dispaly (gameFinished)="onGameFinished()" [guesses]="guesses" [question]="question" ></app-game-dispaly> 
     <ng-container  *ngIf="!restartGamebtnShown else restartGameBtn">
-        <app-game-question [guesses]="guesses" [question]="question"></app-game-question>
+        <app-game-question [guesses]="guesses" [question]="question" ></app-game-question>
         <app-game-keyboard (keyPressed)="guess($event)" [question]="question"></app-game-keyboard>
       </ng-container>
 </div>
 
 <ng-template #restartGameBtn>
-    <button mat-raised-button color="primary" (click)="reset()" style="display: block;margin: auto; align-items: center;">
+    <button mat-raised-button color="primary" (click)="reset();startTimer()" style="display: block;margin: auto; align-items: center;">
       {{'Restart Game'}}
     </button>
   </ng-template>
@@ -28,7 +28,7 @@
 
 <div *ngIf="isButtonVisible1==false&&this.isButtonVisible2 == true" >
     <p class="difficulty">Choose your difficulty:</p>
-    <button class="btns" (click)="this.isButtonVisible2 = false; easy();timer()" > Easy </button>
+    <button class="btns" (click)="this.isButtonVisible2 = false; easy();" > Easy </button>
     <button class="btns" (click)="this.isButtonVisible2 = false; hard();" style="margin-top: 5%;" >Hard</button>
 </div>
 
