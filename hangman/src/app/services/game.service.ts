@@ -10,12 +10,6 @@ const defaultJSONPath= 'assets/languages.json';
   providedIn: 'root'
 })
 export class GameService {
-  interval: any;
-  timeLeft=30;
-  MAX_MISTAKES = 7;
-  mistakesRemaining=this.MAX_MISTAKES;
-  
-
   constructor(private http:HttpClient) { }
 
   getQuestions(jsonPath:string =defaultJSONPath ){

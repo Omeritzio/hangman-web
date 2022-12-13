@@ -3,7 +3,7 @@
 
     <h1 class="title">Hangman</h1>
     <div class="hangeman">
-    <app-game-dispaly (gameFinished)="onGameFinished()" [guesses]="guesses" [question]="question" ></app-game-dispaly> 
+    <app-game-dispaly (gameFinished)="onGameFinished()" [guesses]="guesses" [question]="question" [timeLeft]="timeLeft" [mistakesRemaining]="mistakesRemaining" [interval]="interval" [success]="success"></app-game-dispaly> 
     <ng-container  *ngIf="!restartGamebtnShown else restartGameBtn">
         <app-game-question [guesses]="guesses" [question]="question" ></app-game-question>
         <app-game-keyboard (keyPressed)="guess($event)" [question]="question"></app-game-keyboard>
@@ -28,8 +28,8 @@
 
 <div *ngIf="isButtonVisible1==false&&this.isButtonVisible2 == true" >
     <p class="difficulty">Choose your difficulty:</p>
-    <button class="btns" (click)="this.isButtonVisible2 = false; easy();" > Easy </button>
-    <button class="btns" (click)="this.isButtonVisible2 = false; hard();" style="margin-top: 5%;" >Hard</button>
+    <button class="btns" (click)="this.isButtonVisible2 = false; easy();startTimer()" > Easy </button>
+    <button class="btns" (click)="this.isButtonVisible2 = false; hard();startTimer()" style="margin-top: 5%;" >Hard</button>
 </div>
 
 

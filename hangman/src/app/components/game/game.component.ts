@@ -14,18 +14,19 @@ import {GameDispalyComponent} from '../game-dispaly/game-dispaly.component'
 
 
 export class GameComponent {
-  @Input() interval:any;
+  // -----------buttons---------------
   isButtonVisible1=true;
   isButtonVisible2=true;
   isButtonVisible3=true;
-  seconds=60
-  subscribeTimer: any;
-  @Output() mistakeRemaining:Number=7;
-  @Output() gameFinished = new EventEmitter<boolean>();
-  @Output() timeLeft: number = 30;
+
+// ----------Game------------
+  mistakesRemaining=7;
+  timeLeft=30;
+  interval:any;
+  @Output() gameFinished = new EventEmitter<boolean>()
   success: boolean = false;
-// ----------------------
-  
+
+
   question:string='';
   questions:string[]=[];
   guesses:string[]=[];
@@ -60,14 +61,17 @@ export class GameComponent {
       return;
     }
     this.guesses= [... this.guesses,letter];
-
+    this.pauseTimer();
+    this.timeLeft=30;
+    this.startTimer();
   }
 
 
   reset() {
     this.guesses = [];
     this.pickNewQuestion();
-    this.gameService.timeLeft=30;;
+    this.mistakesRemaining=7;
+    this.timeLeft=30;
     this.restartGamebtnShown = false;
     
   }
@@ -79,6 +83,7 @@ export class GameComponent {
   }
   onGameFinished(){
     this.restartGamebtnShown=true;
+    this.pauseTimer()
   }
 
   easy(){
@@ -100,17 +105,31 @@ export class GameComponent {
 
 
   
-  startTimer(){
-    this.gameDispaly.startTimer()
+  public startTimer() {
+    this.interval= setInterval(() => {
+        if(this.timeLeft > 0) {
+          this.timeLeft--;
+        } else {
+          this.mistakesRemaining=0;
+          this.gameFinished.emit(this.success);
+          this.pauseTimer()
+          this.onGameFinished()
+        }
+      },1000)
+      
+      
+    }
+  
+  pauseTimer() {
+    clearInterval(this.interval);
+    
   }
-
-
-
+  
 
 
 
 }
-  //----- timer --------------
+ 
 
 
 

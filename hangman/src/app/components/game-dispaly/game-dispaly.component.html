@@ -341,4 +341,4 @@
 <div class="mistakes-count" style="color: white;">Mistakes Remaining : {{ mistakesRemaining }}</div>
 <div class="timer"></div>
 <p class="time">{{timeLeft}} Seconds Left....</p> 
-<p *ngIf="timeLeft===0" class="time">You Lose</p>
+<p *ngIf="timeLeft===0 || mistakesRemaining===0" class="time">You Lose</p>

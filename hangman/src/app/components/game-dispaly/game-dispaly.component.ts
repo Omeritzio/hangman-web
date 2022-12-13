@@ -19,12 +19,11 @@ export class GameDispalyComponent implements OnInit,OnChanges {
   @Input() question: string = '';
   @Output() gameFinished = new EventEmitter<boolean>();
   MAX_MISTAKES = 7;
-  @Output() mistakesRemaining;
-  success: boolean = false;
+  @Input() mistakesRemaining;
+  @Input() success: boolean = false;
   subscribeTimer: any;
-  @Output() interval:any;
-
-  @Output() timeLeft: number = 30;
+  @Input() interval:any;
+  @Input() timeLeft: number = 30;
 
   constructor() {
     this.mistakesRemaining = this.MAX_MISTAKES;
@@ -95,7 +94,6 @@ public startTimer() {
       } else {
         this.mistakesRemaining=0;
         this.gameFinished.emit(this.success);
-        this.pauseTimer()
       }
     },1000)
     
@@ -109,7 +107,7 @@ pauseTimer() {
 
   ngOnInit(): void {
 
-
+    
   }
 
 }
