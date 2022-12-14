@@ -340,5 +340,10 @@
 </div>
 <div class="mistakes-count" style="color: white;">Mistakes Remaining : {{ mistakesRemaining }}</div>
 <div class="timer"></div>
-<p class="time">{{timeLeft}} Seconds Left....</p> 
+<p class="time" > Seconds Left: {{timeLeft}}</p> 
 <p *ngIf="timeLeft===0 || mistakesRemaining===0" class="time">You Lose</p>
+<p *ngIf="!this.success===false" class="time">You Win</p>
+<div class="pyro" *ngIf="!this.success===false" >
+  <div class="before"></div>
+  <div class="after"></div>
+</div>

@@ -70,9 +70,10 @@ export class GameComponent {
   reset() {
     this.guesses = [];
     this.pickNewQuestion();
+    this.restartGamebtnShown = false;
     this.mistakesRemaining=7;
     this.timeLeft=30;
-    this.restartGamebtnShown = false;
+    
     
   }
 
