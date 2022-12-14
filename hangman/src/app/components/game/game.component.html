@@ -11,7 +11,7 @@
 </div>
 
 <ng-template #restartGameBtn>
-    <button mat-raised-button color="primary" (click)="reset();startTimer()" style="display: block;margin: auto; align-items: center;">
+    <button mat-raised-button color="primary" (click)="reset();this.isButtonVisible2=true" style="display: block;margin: auto; align-items: center;">
       {{'Restart Game'}}
     </button>
   </ng-template>
