@@ -104,6 +104,15 @@ export class GameComponent {
     });
   }
 
+  custome(a:string){
+    this.gameService.getQuestions('assets/'+a+'.json').subscribe((response) => {
+      this.questions = response.items;
+      this.category = response.category;
+      this.pickNewQuestion();
+    });
+  }
+
+
 
   
   public startTimer() {
