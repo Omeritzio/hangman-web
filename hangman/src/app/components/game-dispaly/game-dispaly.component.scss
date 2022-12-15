@@ -36,6 +36,8 @@
 
 // ----------FireWorks----------
 
+// --------------Fireworks-------------------
+
 $particles: 60;
 $width: 500;
 $height: 400;
@@ -104,12 +106,9 @@ $box-shadow2: ();
     -ms-transform: $settings;
 }
 
-body {
-  margin:0;
-  padding:0;
-  background: #003366;
-  overflow: hidden;
-}
+
+
+
 
 .pyro > .before, .pyro > .after {
   position: absolute;

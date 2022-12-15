@@ -30,7 +30,6 @@ const analytics = getAnalytics(app);
 export class AppComponent {
   title = 'hangman';
   isButtonVisible = true;
-  
 
 
 }
