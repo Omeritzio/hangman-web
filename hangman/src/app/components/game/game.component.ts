@@ -1,7 +1,6 @@
 import { Component,Output,Input,EventEmitter,ViewChild} from '@angular/core';
 import { GameService } from 'src/app/services/game.service';
 import { Location } from '@angular/common';
-import { timer } from 'rxjs';
 import {GameDispalyComponent} from '../game-dispaly/game-dispaly.component'
 
 @Component({

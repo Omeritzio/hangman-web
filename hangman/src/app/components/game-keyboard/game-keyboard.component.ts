@@ -23,7 +23,7 @@ export class GameKeyboardComponent implements OnInit, OnChanges{
 
 
   
-  constructor(GameService:GameService){
+  constructor(){
     this.keys = KEY_CHARS.split('').map((key) =>{
       return {
         value:key,
