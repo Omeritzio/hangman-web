@@ -34,7 +34,7 @@
     }
   }
 
-// ----------FireWorks----------
+
 
 // --------------Fireworks-------------------
 
@@ -116,13 +116,9 @@ $box-shadow2: ();
   height: 4px;
   border-radius: 50%;
   box-shadow: $box-shadow2;
-  @include animation((1s bang ease-out infinite backwards, 1s gravity ease-in infinite backwards, 5s position linear infinite backwards));
+  @include animation((1s bang ease-out infinite backwards, 1s gravity ease-in infinite backwards, 6s position linear infinite backwards));
 }
     
-.pyro > .after {
-  @include animation-delay((1.25s, 1.25s, 1.25s));
-  @include animation-duration((1.25s, 1.25s, 6.25s));
-}
         
 @include keyframes(bang) {
   to {
@@ -132,7 +128,7 @@ $box-shadow2: ();
     
 @include keyframes(gravity)  {
   to {
-    @include transform(translateY(200px));
+    @include transform(translateY(150px));
     opacity: 0;
   }
 }
