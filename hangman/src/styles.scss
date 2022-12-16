@@ -34,6 +34,7 @@ body {
   height: 100vh;
   background: radial-gradient(ellipse at bottom, #84b4eb 0%, #121f63 100%);
   overflow: hidden;
+  overflow-y: hidden;
 }
 
 @function random_range($min, $max) {
