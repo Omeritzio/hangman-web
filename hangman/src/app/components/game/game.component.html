@@ -1,7 +1,7 @@
 <div *ngIf="isButtonVisible1==false&&this.isButtonVisible2 == false&&this.isButtonVisible3 == true">
 
 
-    <h1 class="title" style="margin-top:10% ;">Hangman</h1>
+    <h1 class="title" >Hangman</h1>
     <div class="hangeman">
     <app-game-dispaly (gameFinished)="onGameFinished()" [guesses]="guesses" [question]="question" [timeLeft]="timeLeft" [mistakesRemaining]="mistakesRemaining" [interval]="interval" [success]="success"></app-game-dispaly> 
     <ng-container  *ngIf="!restartGamebtnShown else restartGameBtn">
@@ -20,7 +20,7 @@
 
 
 <div  *ngIf="isButtonVisible1"  >
-    <h1 class="title" style="margin-top:20% ;">Hangman</h1>
+    <h1 class="title" >Hangman</h1>
    <p class="welcome" style="text-align:center"  >Welcome to Hangman Game </p> 
     <button class="ready" type="button" (click)="this.isButtonVisible1 = false" >Ready</button>
 
