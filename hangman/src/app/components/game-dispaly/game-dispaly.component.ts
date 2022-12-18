@@ -14,6 +14,8 @@ import { Injectable } from '@angular/core';
 
 
 export class GameDispalyComponent implements OnInit,OnChanges {
+
+  // ----The inputs that this component gives------
   @Input() guesses: string[] = [];
   @Input() question: string = '';
   @Output() gameFinished = new EventEmitter<boolean>();
@@ -24,11 +26,14 @@ export class GameDispalyComponent implements OnInit,OnChanges {
   @Input() interval:any;
   @Input() timeLeft: number = 30;
 
+
+
+ // ----The constructor make sure that the mistakes Remaining will start with max mistakes ------
   constructor() {
     this.mistakesRemaining = this.MAX_MISTAKES;
     
   }
-
+// ----Check if the characters that we gives are correct ------
   ngOnChanges(changes: SimpleChanges): void {
     if (
       changes?.['question']?.currentValue &&
@@ -47,7 +52,7 @@ export class GameDispalyComponent implements OnInit,OnChanges {
       this.checkGuess(char);
     }
   }
-
+// ----Check if the characters that we gives are correct  and we guessed all the word correctly and won------
   checkGuess(letter: string) {
     let didWin = true;
     this.mistakesRemaining -= this.wasGuessAMistake(letter);
@@ -66,7 +71,7 @@ export class GameDispalyComponent implements OnInit,OnChanges {
       this.gameFinished.emit(this.success);
     }
   }
-
+// ----Check if the characters that we gives are wrong -----
   wasGuessAMistake(letter: string) {
     for (let i = 0; i < this.question.length; i++) {
       if (this.question[i].toLowerCase() === letter.toLowerCase()) {

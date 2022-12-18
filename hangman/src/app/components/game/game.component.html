@@ -1,15 +1,18 @@
+<!-- The Game object -->
 <div *ngIf="isButtonVisible1==false&&this.isButtonVisible2 == false&&this.isButtonVisible3 == true">
 
-
-    <h1 class="title" >Hangman</h1>
-    <div class="hangeman">
-    <app-game-dispaly (gameFinished)="onGameFinished()" [guesses]="guesses" [question]="question" [timeLeft]="timeLeft" [mistakesRemaining]="mistakesRemaining" [interval]="interval" [success]="success"></app-game-dispaly> 
-    <ng-container  *ngIf="!restartGamebtnShown else restartGameBtn">
-        <app-game-question [guesses]="guesses" [question]="question" ></app-game-question>
-        <app-game-keyboard (keyPressed)="guess($event)" [question]="question"></app-game-keyboard>
+<!---------------- First title ----------------->
+    <h1 class="title" >Hangman</h1>   
+    <div class="hangeman"><!--give the class css for the game -->
+    <app-game-dispaly (gameFinished)="onGameFinished()" [guesses]="guesses" [question]="question" 
+    [timeLeft]="timeLeft" [mistakesRemaining]="mistakesRemaining" 
+    [interval]="interval" [success]="success"></app-game-dispaly> <!--all the words that in list are inputs from another components -->
+    <ng-container  *ngIf="!restartGamebtnShown else restartGameBtn"><!--check if there is a reset button after the game is finished -->
+        <app-game-question [guesses]="guesses" [question]="question" ></app-game-question><!--gets the questions and gusses input from question componenet  -->
+        <app-game-keyboard (keyPressed)="guess($event)" [question]="question"></app-game-keyboard><!--get guesses and question from question component  -->
       </ng-container>
 </div>
-
+<!--Reset button-->
 <ng-template #restartGameBtn>
     <button mat-raised-button color="primary" (click)="reset();this.isButtonVisible2=true" style="display: block;margin: auto; align-items: center;">
       {{'Restart Game'}}
@@ -18,7 +21,7 @@
 </div>
 
 
-
+<!--Ready button-->
 <div  *ngIf="isButtonVisible1"  >
     <h1 class="title" >Hangman</h1>
    <p class="welcome" style="text-align:center"  >Welcome to Hangman Game </p> 
@@ -26,6 +29,7 @@
 
 </div>
 
+<!--Choose category and starting time buttons-->
 <div *ngIf="isButtonVisible1==false&&this.isButtonVisible2 == true" >
     <p class="difficulty">Choose your Category:</p>
     <button class="btns" (click)="this.isButtonVisible2 = false; easy();startTimer()" > Fruits </button>

@@ -13,7 +13,7 @@ import {GameDispalyComponent} from '../game-dispaly/game-dispaly.component'
 
 
 export class GameComponent {
-  // -----------buttons---------------
+  // -----------buttons dispalys---------------
   isButtonVisible1=true;
   isButtonVisible2=true;
   isButtonVisible3=true;
@@ -25,7 +25,7 @@ export class GameComponent {
   @Output() gameFinished = new EventEmitter<boolean>()
   success: boolean = false;
 
-
+// ----------Inputs------------
   question:string='';
   questions:string[]=[];
   guesses:string[]=[];
@@ -39,7 +39,7 @@ export class GameComponent {
 
 
 
-  
+  // ----------Initilazer when starting the game get a question from default // Intantially let it stay cuz it gives more buttons randomaly------------
   ngOnInit(): void {
       let jsonPath;
       const url = this.location.path();
@@ -54,7 +54,7 @@ export class GameComponent {
       
 
     }
-
+// ----------Check guesses and give 30 sec for each click------------
   guess(letter:string){
     if (!letter || this.guesses.includes(letter)){
       return;
@@ -65,7 +65,7 @@ export class GameComponent {
     this.startTimer();
   }
 
-
+// ----------The reset function------------
   reset() {
     this.guesses = [];
     this.pickNewQuestion();
@@ -75,17 +75,21 @@ export class GameComponent {
     
     
   }
-
+// ----------The function that gets the randomaly question ------------
   pickNewQuestion(){
     const randomIndex =Math.floor(Math.random() * this.questions.length);
     this.question =this.questions[randomIndex];
     console.log(this.question);
   }
+
+  // ----------The function that gets the randomaly question ------------
   onGameFinished(){
     this.restartGamebtnShown=true;
     this.pauseTimer()
   }
 
+
+   // ----------The functions that get each category from each json path// started with languages.json that is default than made new function that recieve the name  ------------
   easy(){
     this.gameService.getQuestions('assets/languages.json').subscribe((response) => {
       this.questions = response.items;
@@ -112,8 +116,7 @@ export class GameComponent {
   }
 
 
-
-  
+// ----------The functions that gives timer  ------------
   public startTimer() {
     this.interval= setInterval(() => {
         if(this.timeLeft > 0) {
