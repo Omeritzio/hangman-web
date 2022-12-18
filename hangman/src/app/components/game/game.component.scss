@@ -64,6 +64,21 @@
     z-index:500;
 }
 
+#Pl {
+    background-color:transparent; 
+    border-color: aqua;
+    border-radius: 30%;
+    display: flex;
+    margin: auto;
+    justify-content: center;
+    bottom: 60%;
+    color: aliceblue; 
+    font-size: 2.7em;
+    position: relative;
+    z-index:500;
+    width: 13%;
+}
+
 @media (min-width: 350px) and (max-width: 800px) {
     .title {
         margin-top:10% ;
@@ -76,6 +91,10 @@
 
     .btns { 
         font-size: 2.5em;
+    }
+    #Pl{
+        font-size: 2.7em;
+        width: 70%;
     }
 
     }
