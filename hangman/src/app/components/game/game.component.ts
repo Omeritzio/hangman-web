@@ -71,6 +71,7 @@ export class GameComponent {
     this.pickNewQuestion();
     this.timeLeft=30;
     this.restartGamebtnShown = false;
+    this.isButtonVisible3=true;
     this.mistakesRemaining=7;
     
     
