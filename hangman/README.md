@@ -37,7 +37,7 @@ npm run test
 
 * Website: http://omerprofile-dda24.firebaseapp.com
 * Github: [@Omeritzio](https://github.com/Omeritzio)
-* LinkedIn: [@Omer Shlomo](www.linkedin.com/in/omer-shlomo-396b0419a)
+* LinkedIn: [Omer Shlomo](www.linkedin.com/in/omer-shlomo-396b0419a)
 
 ## Show your support
 
