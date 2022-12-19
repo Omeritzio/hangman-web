@@ -30,6 +30,30 @@
     margin-top: 2%;
     font-size: 5em;
 }
+
+.instructon {
+    margin: auto;
+    display: block;
+    color: aliceblue; 
+    text-align: center;
+    position: relative;
+    color: rgb(180, 248, 253);
+    text-shadow:
+        0 0 7px rgb(8, 255, 61),
+        0 0 10px rgb(0, 203, 248),
+        0 0 21px rgb(11, 218, 255),
+        0 0 42px rgb(20, 191, 225),
+        0 0 82px rgb(11, 216, 231),
+        0 0 92px rgb(58, 222, 244),
+        0 0 102px rgb(0, 255, 0),
+        0 0 151px rgb(7, 238, 255);
+    margin-top: 2%;
+    font-size: 2em;
+}
+
+
+
+
 .ready {
     background-color:transparent; 
     border-color: aqua;

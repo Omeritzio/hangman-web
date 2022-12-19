@@ -1,5 +1,5 @@
 <!-- The Game object -->
-<div *ngIf="isButtonVisible1==false&&this.isButtonVisible2 == false&&this.isButtonVisible3 == true">
+<div *ngIf="isButtonVisible1==false&&this.isButtonVisible2 == false&&this.isButtonVisible3 == false &&this.isButtonVisible4 == true">
 
 <!---------------- First title ----------------->
     <h1 class="title" >Hangman</h1>   
@@ -29,13 +29,27 @@
 
 </div>
 
+<!--Ready button-->
+<div  *ngIf="isButtonVisible1==false&&this.isButtonVisible2 == true"  >
+  <h1 class="title" >Instruction</h1>
+ <p class="instructon" style="text-align:center"  >You need to find the right word to fit each line, 
+  <br>
+  for each wrong answer the remaining mistake will decrease if u don't answer in 30 sec you lose immediately <br>
+  If you feel ready click on 'Ready'<br>
+  Good Luck
+</p> 
+  <button class="ready" type="button" (click)="this.isButtonVisible2 = false" >Ready</button>
+
+</div>
+
+
 <!--Choose category and starting time buttons-->
-<div *ngIf="isButtonVisible1==false&&this.isButtonVisible2 == true" >
+<div *ngIf="isButtonVisible1==false&&this.isButtonVisible2 == false &&this.isButtonVisible3 == true" >
     <p class="difficulty">Choose your Category:</p>
-    <button class="btns" (click)="this.isButtonVisible2 = false; easy();startTimer()" > Fruits </button>
-    <button Id="Pl" class="btns" (click)="this.isButtonVisible2 = false; custome('programing');startTimer()" style="margin-top: 5%" >Programing Languages</button>
-    <button class="btns" (click)="this.isButtonVisible2 = false; custome('animals');startTimer()" style="margin-top: 5%;" >Animals</button>
-    <button class="btns" (click)="this.isButtonVisible2 = false; hard();startTimer()" style="margin-top: 5%;" >Random</button>
+    <button class="btns" (click)="this.isButtonVisible3 = false; easy();startTimer()" > Fruits </button>
+    <button Id="Pl" class="btns" (click)="this.isButtonVisible3 = false; custome('programing');startTimer()" style="margin-top: 5%" >Programing Languages</button>
+    <button class="btns" (click)="this.isButtonVisible3 = false; custome('animals');startTimer()" style="margin-top: 5%;" >Animals</button>
+    <button class="btns" (click)="this.isButtonVisible3 = false; hard();startTimer()" style="margin-top: 5%;" >Random</button>
 </div>
 
 

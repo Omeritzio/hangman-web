@@ -17,7 +17,7 @@ export class GameComponent {
   isButtonVisible1=true;
   isButtonVisible2=true;
   isButtonVisible3=true;
-
+  isButtonVisible4=true;
 // ----------Game------------
   mistakesRemaining=7;
   timeLeft=30;
